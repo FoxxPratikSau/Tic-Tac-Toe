@@ -9,7 +9,6 @@ class GamePage extends StatefulWidget {
   @override
   State<GamePage> createState() => _GamePageState();
 }
-
 class _GamePageState extends State<GamePage> {
   static const String Player1 = "X";
   static const String Player2 = "O";
@@ -56,9 +55,6 @@ class _GamePageState extends State<GamePage> {
       ),
     );
   }
-
-  
-
   Widget GameContainer() {
     return Container(
       // height: MediaQuery.of(context).size.height / 2,
@@ -74,7 +70,6 @@ class _GamePageState extends State<GamePage> {
           }),
     );
   }
-
   Widget _box(int index) {
     return InkWell(
       onTap: () {
@@ -105,7 +100,6 @@ class _GamePageState extends State<GamePage> {
       ),
     );
   }
-
   RestartButton() {
     return ElevatedButton.icon(
         onPressed: () {
@@ -117,7 +111,6 @@ class _GamePageState extends State<GamePage> {
         icon: const Icon(Icons.restart_alt),
         label: const Text("Restart Game"));
   }
-
   changeTurn() {
     if (currentPlayer == Player1) {
       currentPlayer = Player2;
@@ -125,7 +118,6 @@ class _GamePageState extends State<GamePage> {
       currentPlayer = Player1;
     }
   }
-
   Winner() {
     List<List<int>> winningList = [
       [0, 1, 2],
@@ -153,7 +145,6 @@ class _GamePageState extends State<GamePage> {
       }
     }
   }
-
   Draw() {
     if (gameEnd) {
       return;
@@ -164,13 +155,11 @@ class _GamePageState extends State<GamePage> {
         draw = false;
       }
     }
-
     if (draw) {
       GameOverMessage("Draw");
       gameEnd = true;
     }
   }
-
   GameOverMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
